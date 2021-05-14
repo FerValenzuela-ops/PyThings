@@ -634,10 +634,51 @@ print(a)
 
 # Functional programming
 
-def multiply_by2(li):
-    new_list = []
-    for item in li:
-        new_list.append(item*2)
-    return new_list
-new_list = ''
-print(multiply_by2([1,2,3]))
+
+# map . filter , zip, and ,reduce
+
+# def multiply_by2(li):
+#     new_list = []
+#     for item in li:
+#         new_list.append(item*2)
+#     return new_list
+# new_list = ''
+
+# print(map(multiply_by2, ([1,2,3])))
+
+from functools import reduce
+# map()
+my_list = [1, 2, 3]
+your_list = [10, 20, 30]
+their_list = (5, 3, 2)
+
+
+def multiply_by2(item):
+    return item*2
+
+
+print(list(map(multiply_by2, my_list)))
+print(my_list)
+
+# filter()
+
+
+def only_odd(item):
+    return item % 2 != 0
+
+
+print(list(filter(only_odd, my_list)))
+
+# zip()
+
+print(list(zip(my_list, your_list, their_list)))
+print(my_list)
+
+# reduce()
+
+
+def accumulator(acc, item):
+    print(acc, item)
+    return acc + item
+
+print(reduce(accumulator, my_list, 0))
