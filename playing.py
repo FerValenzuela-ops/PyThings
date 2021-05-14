@@ -1,15 +1,15 @@
 '''
 name = 'Jhonny'
 age = 55
-#The clean way to use variables
+# The clean way to use variables
 print(f'hi {name}. You are {age} years old')
 
 
-# String indexes 
+# String indexes
 selfish = '01234567'
 # where to look at []
 print(selfish[2])
-#Where to start/ where to finish [start:over]
+# Where to start/ where to finish [start:over]
 selfish = '01234567'
 print(selfish[0:4])
 # Stepover [start"stop:stepover]
@@ -34,12 +34,12 @@ print(tula)
 print(quote)
 
 
-#booleans
+# booleans
 name = 'Fer'
 is_cool = False
 is_cool = True
 
-#Exercise, Age guesser
+# Exercise, Age guesser
 
 name = 'Fer'
 age = 50
@@ -63,15 +63,16 @@ actual_year = sys_date[0:4]
 
 guessing_age = int(actual_year) - birth_year
 
-age_message = (f'Hello {name}. It\'s been passed {guessing_age} years from your birth day!')
+age_message = (
+    f'Hello {name}. It\'s been passed {guessing_age} years from your birth day!')
 
 print(age_message)
 
 
-#Exercise Password checker
+# Exercise Password checker
 
 user_name = str(input('Hello,write your name here: \n') #Ask user name's
-) 
+)
 
 
 pswd = str(input(f'{user_name}, please write your password: \n'))
@@ -93,13 +94,13 @@ print(amazon_cart[0])
 
 
 
-#list slicing
+# list slicing
 
 amazon_cart = [
-  'notebooks', 
+  'notebooks',
   'sunglasses',
   'toys',
-  'grapes'  
+  'grapes'
   ]
 
 
@@ -113,7 +114,7 @@ print(amazon_cart)
 
 
 
-#Matrix
+# Matrix
 
 matrix = [
   [1,9,3],
@@ -127,14 +128,14 @@ basket = [1,2,3,4,5]
 
 basket.append(100)
 basket.extend([104])
-basket.insert(2, 909) 
+basket.insert(2, 909)
 new_list = basket[:]
-#adding
+# adding
 
 print(basket)
-#print(new_list)
+# print(new_list)
 
-#removing 
+# removing
 basket.pop() # removes the last
 basket.pop(0) #removes by index
 basket.remove(4) #removes the objetc
@@ -160,7 +161,7 @@ print(basket)
 
 | = or
 & = and
-  
+
 
 
 
@@ -205,14 +206,14 @@ for item in user.items():
   print(item)
 
 
-for key, value in user.items(): 
-  print(key, value)  
+for key, value in user.items():
+  print(key, value)
 
 for item in user.keys():
-  print(item)  
+  print(item)
 
 for item in user.values():
-  print(item)  
+  print(item)
 
 
 
@@ -224,7 +225,7 @@ counter = 0
 for item in _list:
   counter = counter + item
 
-print(counter)  
+print(counter)
 
 
 
@@ -235,11 +236,11 @@ for _ in range(2):
   print(list(range(10)))
 
 "this doesnt works"
-for _ in range(10, 0): 
-  print(_) 
+for _ in range(10, 0):
+  print(_)
 
 for _ in range(10, 0, -1):
-  print(_)  
+  print(_)
 
 
 
@@ -249,7 +250,7 @@ for i,char in enumerate('Helloooo'):
 
 for i,char in enumerate(list(range(101))):
   print(i,char)
-  
+
 
 
 
@@ -269,7 +270,7 @@ for item in my_list:
 i = 0
 while i < len(my_list):
   print(my_list[i])
-  i += 1  
+  i += 1
 
 while True:
   response = input('type something: ')
@@ -297,7 +298,7 @@ def show_tree():
         print('*', end = '')
       else:
         print(' ', end = '')
-    print('')  
+    print('')
 
 
 
@@ -309,7 +310,7 @@ duplicates = []
 for letter in my_list:
   if my_list.count(letter) > 1:
     if letter not in duplicates:
-      duplicates.append(letter) 
+      duplicates.append(letter)
 print(duplicates)
 
 
@@ -325,7 +326,7 @@ show_tree()
 def sum(num1, num2):
   def another_func(n1, n2):
     return n1 + n2
-  return another_func(num1, num2)  
+  return another_func(num1, num2)
 
 total = sum(10,20)
 print(total)
@@ -346,7 +347,7 @@ print(is_even_btt(51))
 # *args **kwargs
 
 def super_funct(name, *args, i='hi', **kwargs):
-  total = 0 
+  total = 0
   for items in kwargs.values():
     total += items
   return sum(args) + total
@@ -354,7 +355,7 @@ def super_funct(name, *args, i='hi', **kwargs):
 
 print(super_funct('Andy', 1,2,3,4,5, num1=5, num2=10))
 
-#Rule: params, *args, default parameter, **kwargs
+# Rule: params, *args, default parameter, **kwargs
 
 
 
@@ -362,9 +363,9 @@ def highest_even(li):
   evens = []
   for items in li:
     if items % 2 == 0:
-      evens.append(items) 
+      evens.append(items)
 
-  return max(evens) 
+  return max(evens)
 
 
 print(highest_even([10,2,3,4,8,11,100,88]))
@@ -382,7 +383,7 @@ while ((n := len(a)) > 1):
   print(n)
   a = a[:-1]
 
-print(a)  
+print(a)
 
 '''
 
@@ -567,37 +568,68 @@ print(a)
 # print(issubclass(SuperList, list))
 # print(issubclass(list, object))
 
-class User():
-    def sign_in(self):
-        print('You are logged in')
+# class User():
+#     def sign_in(self):
+#         print('You are logged in')
 
 
-class Wizard(User):
-    def __init__(self, name, power):
-        self.name = name
-        self.power = power
+# class Wizard(User):
+#     def __init__(self, name, power):
+#         self.name = name
+#         self.power = power
 
-    def attack(self):
-        print(f'attacking with power of {self.power}')
+#     def attack(self):
+#         print(f'attacking with power of {self.power}')
 
-class Archer(User):
-    def __init__(self, name, arrows):
-        self.name = name
-        self.arrows = arrows
+# class Archer(User):
+#     def __init__(self, name, arrows):
+#         self.name = name
+#         self.arrows = arrows
 
-    def check_arrows(self):
-        print(f'{self.arrows} remaining')
+#     def check_arrows(self):
+#         print(f'{self.arrows} remaining')
 
-    def run(self):
-      print('ran really fast')      
+#     def run(self):
+#       print('ran really fast')
 
-class HybridBorg(Wizard, Archer):
-  def __init__(self, name, power, arrows):
-    Archer.__init__(self, name, arrows)
-    Wizard.__init__(self, name, arrows)
+# class HybridBorg(Wizard, Archer):
+#   def __init__(self, name, power, arrows):
+#     Archer.__init__(self, name, arrows)
+#     Wizard.__init__(self, name, arrows)
 
-hb1 = HybridBorg('borgie', 50, 100)
+# hb1 = HybridBorg('borgie', 50, 100)
 
-print(hb1.attack())
-print(hb1.check_arrows())
-print(hb1.sign_in())
+# print(hb1.attack())
+# print(hb1.check_arrows())
+# print(hb1.sign_in())
+
+# MRO - Method Resolution Order
+
+# class A:
+#     num = 10
+
+
+# class B(A):
+#     pass
+
+
+# class C(A):
+#     num = 1
+
+
+# class D(B, C):
+#     pass
+
+# print(D.mro())
+
+class X:pass
+class Y:pass
+class Z:pass
+class A(X,Y):pass
+class B(Y,Z):pass
+class M(B,A,Z):pass
+
+print(M.__mro__)
+
+
+
