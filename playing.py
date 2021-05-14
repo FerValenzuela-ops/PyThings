@@ -622,14 +622,22 @@ print(a)
 
 # print(D.mro())
 
-class X:pass
-class Y:pass
-class Z:pass
-class A(X,Y):pass
-class B(Y,Z):pass
-class M(B,A,Z):pass
+# class X:pass
+# class Y:pass
+# class Z:pass
+# class A(X,Y):pass
+# class B(Y,Z):pass
+# class M(B,A,Z):pass
 
-print(M.__mro__)
+# print(M.__mro__)
 
 
+# Functional programming
 
+def multiply_by2(li):
+    new_list = []
+    for item in li:
+        new_list.append(item*2)
+    return new_list
+new_list = ''
+print(multiply_by2([1,2,3]))
