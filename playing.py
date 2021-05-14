@@ -553,19 +553,51 @@ print(a)
 # del action_figure  # Changes the value of the method
 
 
-class SuperList(list):
+# class SuperList(list):
 
-    def __len__(self):
-        return 1000
-
-
-super_list1 = SuperList()
-print(len(super_list1))
-super_list1.append(5)
-print(super_list1[0])
-print(len(super_list1))
-print(issubclass(SuperList, list))
-print(issubclass(list, object))
+#     def __len__(self):
+#         return 1000
 
 
+# super_list1 = SuperList()
+# print(len(super_list1))
+# super_list1.append(5)
+# print(super_list1[0])
+# print(len(super_list1))
+# print(issubclass(SuperList, list))
+# print(issubclass(list, object))
 
+class User():
+    def sign_in(self):
+        print('You are logged in')
+
+
+class Wizard(User):
+    def __init__(self, name, power):
+        self.name = name
+        self.power = power
+
+    def attack(self):
+        print(f'attacking with power of {self.power}')
+
+class Archer(User):
+    def __init__(self, name, arrows):
+        self.name = name
+        self.arrows = arrows
+
+    def check_arrows(self):
+        print(f'{self.arrows} remaining')
+
+    def run(self):
+      print('ran really fast')      
+
+class HybridBorg(Wizard, Archer):
+  def __init__(self, name, power, arrows):
+    Archer.__init__(self, name, arrows)
+    Wizard.__init__(self, name, arrows)
+
+hb1 = HybridBorg('borgie', 50, 100)
+
+print(hb1.attack())
+print(hb1.check_arrows())
+print(hb1.sign_in())
