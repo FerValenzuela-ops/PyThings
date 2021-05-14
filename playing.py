@@ -388,8 +388,6 @@ print(a)
 
 # Scope - what variables do i have access to?
 
-   
-
 
 # # class PlayerCharacter:
 # #     # Class object attribute
@@ -468,15 +466,19 @@ print(a)
 
 # users
 class User:
+    def __init__(self, email):
+      self.email = email
+
     def sign_in(self):
         print('logged in')
 
     def attack(self):
-        print('Do Nothing')    
+        print('Do Nothing')
 
 
 class Wizzard(User):
-    def __init__(self, name, power):
+    def __init__(self, name, power, email):
+        super().__init__( email)
         self.name = name
         self.power = power
 
@@ -494,12 +496,13 @@ class Archer(User):
         print(f'attacking with {self.num_arrows} arrows')
 
 
-wizard1 = Wizzard('Mage', 60)
+wizard1 = Wizzard('Mage', 60, 'mage@gmail.com')
 archer1 = Archer('Bowy', 30)
 
 
 def player_attack(char):
     char.attack()
+
 
 print(isinstance(wizard1, object))
 player_attack(wizard1)
@@ -508,4 +511,10 @@ player_attack(archer1)
 for char in [wizard1, archer1]:
     char.attack()
 
-print(wizard1.name)    
+print(wizard1.name)
+print(wizard1.email)
+
+
+print(dir(wizard1)) # dir makes possible the object introspection
+
+
