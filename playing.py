@@ -465,56 +465,107 @@ print(a)
 
 
 # users
-class User:
-    def __init__(self, email):
-      self.email = email
+# class User:
+#     def __init__(self, email):
+#       self.email = email
 
-    def sign_in(self):
-        print('logged in')
+#     def sign_in(self):
+#         print('logged in')
 
-    def attack(self):
-        print('Do Nothing')
-
-
-class Wizzard(User):
-    def __init__(self, name, power, email):
-        super().__init__( email)
-        self.name = name
-        self.power = power
-
-    def attack(self):
-        User.attack(self)
-        print(f'attacking with power of {self.power}')
+#     def attack(self):
+#         print('Do Nothing')
 
 
-class Archer(User):
-    def __init__(self, name, num_arrows):
-        self.name = name
-        self.num_arrows = num_arrows
+# class Wizzard(User):
+#     def __init__(self, name, power, email):
+#         super().__init__( email)
+#         self.name = name
+#         self.power = power
 
-    def attack(self):
-        print(f'attacking with {self.num_arrows} arrows')
-
-
-wizard1 = Wizzard('Mage', 60, 'mage@gmail.com')
-archer1 = Archer('Bowy', 30)
+#     def attack(self):
+#         User.attack(self)
+#         print(f'attacking with power of {self.power}')
 
 
-def player_attack(char):
-    char.attack()
+# class Archer(User):
+#     def __init__(self, name, num_arrows):
+#         self.name = name
+#         self.num_arrows = num_arrows
+
+#     def attack(self):
+#         print(f'attacking with {self.num_arrows} arrows')
 
 
-print(isinstance(wizard1, object))
-player_attack(wizard1)
-player_attack(archer1)
-
-for char in [wizard1, archer1]:
-    char.attack()
-
-print(wizard1.name)
-print(wizard1.email)
+# wizard1 = Wizzard('Mage', 60, 'mage@gmail.com')
+# archer1 = Archer('Bowy', 30)
 
 
-print(dir(wizard1)) # dir makes possible the object introspection
+# def player_attack(char):
+#     char.attack()
+
+
+# print(isinstance(wizard1, object))
+# player_attack(wizard1)
+# player_attack(archer1)
+
+# for char in [wizard1, archer1]:
+#     char.attack()
+
+# print(wizard1.name)
+# print(wizard1.email)
+
+
+# print(dir(wizard1)) # dir makes possible the object introspection
+
+# class Toy():
+#     def __init__(self, color, age):
+#         self.color = color
+#         self.age = age
+#         self.my_dict = {
+#             'name': 'Yoyo',
+#             'has_pets': False
+#         }
+
+#     def __str__(self):  # Changes the value of the method
+#         return f'{self.color}'
+
+#     def __len__(self):  # Changes the value of the method
+#         return 590
+
+#     def __del__(self):  # Changes the value of the method
+#         print('deleted!')
+
+#     def __call__(self):
+#         return ('yeeeesss???')
+
+#     def __getitem__(self, i):
+#         return self.my_dict[i]
+
+
+# action_figure = Toy('red', 0)
+# print(action_figure.__str__())
+# print(str(action_figure))  # Changes the value of the method
+# print(len(action_figure))  # Changes the value of the method
+# print(action_figure())
+# print(action_figure['name'])
+
+
+# del action_figure  # Changes the value of the method
+
+
+class SuperList(list):
+
+    def __len__(self):
+        return 1000
+
+
+super_list1 = SuperList()
+print(len(super_list1))
+super_list1.append(5)
+print(super_list1[0])
+print(len(super_list1))
+print(issubclass(SuperList, list))
+print(issubclass(list, object))
+
 
 
