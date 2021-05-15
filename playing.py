@@ -692,15 +692,26 @@ print(a)
 
 # print(reduce(lambda acc, item: acc + item, my_list))
 
-my_list = [5, 4, 3]
+# my_list = [5, 4, 3]
 
-#Square
-new_list = print(list(map(lambda item: item**2, my_list)))
-print(new_list)
-#List sorting base in the second number
+# #Square
+# new_list = print(list(map(lambda item: item**2, my_list)))
+# print(new_list)
+# #List sorting base in the second number
 
-li = [(0,2),(4,3),(9,9), (10,-1)]
+# li = [(0,2),(4,3),(9,9), (10,-1)]
 
-print(sorted(li, key = lambda x: x[1]))
+# print(sorted(li, key = lambda x: x[1]))
     
+# list, set, dictionary comprehension
 
+
+my_list = [char for char in 'hello']
+my_list2 = [num for num in range(0,100)]
+my_list3 = [num*2 for num in range(0,100)]
+my_list4 = [num**2 for num in range(0,100) if num % 2 == 0]
+
+print(my_list4)
+# print(my_list3)
+# print(my_list)
+# print(my_list2)
