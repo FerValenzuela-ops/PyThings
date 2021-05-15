@@ -836,19 +836,191 @@ def message_friends(user):
     print('message has been sent')
 
 
-message_friends(user1)
+# message_friends(user1)
 
 
 # Error handling in Python
-while True:
-    try:
-        age = int(input('how old are you?'))
-        10/age
-        print(age)
-    except ValueError:
-        print('please enter a number')
-    except ZeroDivisionError:
-        print('please enter age higher than zero')    
-    else:
-      print('thank you')
-      break
+# while True:
+#     try:
+#         age = int(input('how old are you?'))
+#         10/age
+#         print(age)
+#     except ValueError:
+#         print('please enter a number')
+#     except ZeroDivisionError:
+#         print('please enter age higher than zero')
+#     else:
+#       print('thank you')
+#       break
+
+# def sum(num, num2):
+#     try:
+#         return num/num2
+#     except (TypeError, ZeroDivisionError) as err:
+#         print(f'please enter numbers or letters! -> {err}')
+
+
+# print(sum(1, 0))
+
+
+# while True:
+#     try:
+#         age = int(input('how old are you?'))
+#         10/age
+#         raise ValueError('hey cut it out')
+#     except ZeroDivisionError:
+#         print('please enter age higher than zero')
+#         break
+#     else:
+#         print('thank you')
+
+#     finally:
+#         print('ok, i am already done')
+#     print('can you hear me')
+
+
+# Generators
+
+# range(100)
+# list(range(100))
+
+
+# def make_list(num):
+#     result = []
+#     for i in range(num):
+#         result.append(i)
+#     return result
+
+# my_list = make_list(1000)
+# print(my_list)
+# # print(list(range(1000)))
+
+
+# def generator_function(num):
+#     for i in range(num):
+#         yield i
+
+
+# g = generator_function(100)
+
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# print(next(g))
+
+# # for item in generator_function(1000):
+# #   print(item)
+
+
+# # Why generators
+
+
+def performance(fn):  # This allows to take the time of the script
+    def wrapper(*args, **kwargs):
+        t1 = time()
+        result = fn(*args, **kwargs)
+        t2 = time()
+        print(f'took {t2-t1} ms')
+        return result
+    return wrapper
+
+
+# @performance
+# def long_time():
+#     print('1')
+#     for i in range(100000):
+#         i*5
+
+
+# @performance
+# def long_time2():
+#   print('2')
+#   for i in list(range(100000)):
+#     i*5
+
+
+# long_time()
+# long_time2()
+
+
+# So generators
+
+# def gen_fun(num):
+#   for i in range(num):
+#     yield i
+
+# for item in gen_fun(100):
+#   pass
+
+
+# This is a for loop
+
+# def special_for(iterable):
+#     iterator = iter(iterable)
+#     while True:
+#         try:
+#             print(iterator)
+#             print(next(iterator)*2)
+#         except StopIteration:
+#             break
+
+
+# special_for([1, 2, 3])
+
+
+# # This is how a range() works
+# class MyGen():
+#     current = 0
+
+#     def __init__(self, first, last):
+#         self.first = first
+#         self.last = last
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         if MyGen.current < self.last:
+#             num = MyGen.current
+#             MyGen.current += 1
+#             return num
+#         raise StopIteration
+
+
+# gen = MyGen(0, 100)
+
+
+# for i in gen:
+#     print(i)
+
+
+# Fibonacci generator
+
+@performance
+def fib_num(num):
+    a = 0
+    b = 1
+    for i in range(num):
+        yield a
+        temp = a
+        a = b
+        b = temp + b
+
+
+for x in fib_num(2000):
+    print(x)
+
+@performance
+def fib_num2(num):
+    a = 0
+    b = 1
+    result = []
+    for i in range(num):
+        result.append(a)
+        temp = a
+        a = b
+        b = temp + b
+    return result   
+
+print(fib_num2(2000))
