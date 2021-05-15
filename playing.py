@@ -644,50 +644,63 @@ print(a)
 #     return new_list
 # new_list = ''
 
-# print(map(multiply_by2, ([1,2,3])))
+# # print(map(multiply_by2, ([1,2,3])))
 
-from functools import reduce
-# map()
-my_list = [1, 2, 3]
-your_list = [10, 20, 30]
-their_list = (5, 3, 2)
-
-
-def multiply_by2(item):
-    return item*2
+# from functools import reduce
+# # map()
+# my_list = [1, 2, 3]
+# your_list = [10, 20, 30]
+# their_list = (5, 3, 2)
 
 
-print(list(map(multiply_by2, my_list)))
-print(my_list)
-
-# filter()
+# def multiply_by2(item):
+#     return item*2
 
 
-def only_odd(item):
-    return item % 2 != 0
+# print(list(map(multiply_by2, my_list)))
+# print(my_list)
+
+# # filter()
 
 
-print(list(filter(only_odd, my_list)))
-
-# zip()
-
-print(list(zip(my_list, your_list, their_list)))
-print(my_list)
-
-# reduce()
+# def only_odd(item):
+#     return item % 2 != 0
 
 
-def accumulator(acc, item):
-    print(acc, item)
-    return acc + item
+# print(list(filter(only_odd, my_list)))
 
-print(reduce(accumulator, my_list, 0))
+# # zip()
 
-# lambda expressions
-# lambda param: action(param)
+# print(list(zip(my_list, your_list, their_list)))
+# print(my_list)
 
-print(list(map(lambda item: item*2, my_list)))
+# # reduce()
 
-print(list(filter(lambda item: item % 2 !=0, my_list)))
 
-print(reduce(lambda acc, item: acc + item, my_list))
+# def accumulator(acc, item):
+#     print(acc, item)
+#     return acc + item
+
+# print(reduce(accumulator, my_list, 0))
+
+# # lambda expressions
+# # lambda param: action(param)
+
+# print(list(map(lambda item: item*2, my_list)))
+
+# print(list(filter(lambda item: item % 2 !=0, my_list)))
+
+# print(reduce(lambda acc, item: acc + item, my_list))
+
+my_list = [5, 4, 3]
+
+#Square
+new_list = print(list(map(lambda item: item**2, my_list)))
+print(new_list)
+#List sorting base in the second number
+
+li = [(0,2),(4,3),(9,9), (10,-1)]
+
+print(sorted(li, key = lambda x: x[1]))
+    
+
