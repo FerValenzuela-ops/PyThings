@@ -702,16 +702,46 @@ print(a)
 # li = [(0,2),(4,3),(9,9), (10,-1)]
 
 # print(sorted(li, key = lambda x: x[1]))
-    
+
 # list, set, dictionary comprehension
 
 
-my_list = [char for char in 'hello']
-my_list2 = [num for num in range(0,100)]
-my_list3 = [num*2 for num in range(0,100)]
-my_list4 = [num**2 for num in range(0,100) if num % 2 == 0]
+# my_list = [char for char in 'hello']
+# my_list2 = [num for num in range(0,100)]
+# my_list3 = [num*2 for num in range(0,100)]
+# my_list4 = [num**2 for num in range(0,100) if num % 2 == 0]
 
-print(my_list4)
+# print(my_list4)
 # print(my_list3)
 # print(my_list)
 # print(my_list2)
+
+# set comprehension
+my_list = {char for char in 'hello'}
+my_list2 = {num for num in range(0, 100)}
+my_list3 = {num*2 for num in range(0, 100)}
+my_list4 = {num**2 for num in range(0, 100) if num % 2 == 0}
+# print(my_list4)
+# print(my_list3)
+# print(my_list)
+# print(my_list2)
+
+
+# dict comprehension
+
+simple_dict = {
+    'a': 1,
+    'b': 2
+
+}
+
+my_dict = {k: v**2 for k, v in simple_dict.items() if v % 2 == 0}
+
+print(my_dict)
+
+my_dict2 = {num:num*2 for num in [1, 2, 3]}
+print(my_dict2)
+some_list = ['a','b','c','b','d','m','n','n']
+
+duplicate = list(set([letter for letter in some_list if some_list.count(letter) >1 ]))
+print(duplicate)
