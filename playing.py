@@ -777,38 +777,78 @@ def my_decoratorPattern(func):
 # bye()
 
 
-# Decorator example
-def my_decorator(func):
-    def wrap_func(*args, **kwargs):
-        print('*************')
-        func(*args, **kwargs)
-        print('*************')
-    return wrap_func
+# # Decorator example
+# def my_decorator(func):
+#     def wrap_func(*args, **kwargs):
+#         print('*************')
+#         func(*args, **kwargs)
+#         print('*************')
+#     return wrap_func
 
 
-@my_decorator
-def hello(greeting, emoji=':('):
-    print(greeting, emoji)
+# @my_decorator
+# def hello(greeting, emoji=':('):
+#     print(greeting, emoji)
 
 
-hello('hiii')
+# hello('hiii')
 
-# Decorator
+# # Decorator
 
 
-def performance(fn):
+# def performance(fn):
+#     def wrapper(*args, **kwargs):
+#         t1 = time()
+#         result = fn(*args, **kwargs)
+#         t2 = time()
+#         print(f'took {t2-t1} ms')
+#         return result
+#     return wrapper
+
+
+# @performance
+# def long_time():
+#     for i in range(1000):
+#         i*5
+
+# long_time()
+
+# Create an @authenticated decorator that only allows the function to run is user1 has 'valid' set to True:
+user1 = {
+    'name': 'Sorna',
+    # changing this will either run or not run the message_friends function.
+    'valid': True
+}
+
+
+def authenticated(fn):
     def wrapper(*args, **kwargs):
-        t1 = time()
-        result = fn(*args, **kwargs)
-        t2 = time()
-        print(f'took {t2-t1} ms')
-        return result
+        # Here valid equals True , *args[0] = (('name': 'Sorna'), ('valid': True)), ['valid'] = True or False
+        if args[0]['valid']:
+            return fn(*args, **kwargs)
+        else:
+            print('Ups, You are not logged in')  # Here valid equals to False
     return wrapper
 
 
-@performance
-def long_time():
-    for i in range(1000):
-        i*5
+@authenticated
+def message_friends(user):
+    print('message has been sent')
 
-long_time()
+
+message_friends(user1)
+
+
+# Error handling in Python
+while True:
+    try:
+        age = int(input('how old are you?'))
+        10/age
+        print(age)
+    except ValueError:
+        print('please enter a number')
+    except ZeroDivisionError:
+        print('please enter age higher than zero')    
+    else:
+      print('thank you')
+      break
