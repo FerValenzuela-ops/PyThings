@@ -717,11 +717,11 @@ print(a)
 # print(my_list2)
 
 # set comprehension
-my_list = {char for char in 'hello'}
-my_list2 = {num for num in range(0, 100)}
-my_list3 = {num*2 for num in range(0, 100)}
-my_list4 = {num**2 for num in range(0, 100) if num % 2 == 0}
-# print(my_list4)
+# my_list = {char for char in 'hello'}
+# my_list2 = {num for num in range(0, 100)}
+# my_list3 = {num*2 for num in range(0, 100)}
+# my_list4 = {num**2 for num in range(0, 100) if num % 2 == 0}
+# # print(my_list4)
 # print(my_list3)
 # print(my_list)
 # print(my_list2)
@@ -729,19 +729,86 @@ my_list4 = {num**2 for num in range(0, 100) if num % 2 == 0}
 
 # dict comprehension
 
-simple_dict = {
-    'a': 1,
-    'b': 2
+# simple_dict = {
+#     'a': 1,
+#     'b': 2
 
-}
+# }
 
-my_dict = {k: v**2 for k, v in simple_dict.items() if v % 2 == 0}
+# my_dict = {k: v**2 for k, v in simple_dict.items() if v % 2 == 0}
 
-print(my_dict)
+# print(my_dict)
 
-my_dict2 = {num:num*2 for num in [1, 2, 3]}
-print(my_dict2)
-some_list = ['a','b','c','b','d','m','n','n']
+# my_dict2 = {num:num*2 for num in [1, 2, 3]}
+# print(my_dict2)
+# some_list = ['a','b','c','b','d','m','n','n']
 
-duplicate = list(set([letter for letter in some_list if some_list.count(letter) >1 ]))
-print(duplicate)
+# duplicate = list(set([letter for letter in some_list if some_list.count(letter) >1 ]))
+# print(duplicate)
+
+# High Order Function HOC
+
+# def greet(func):
+#   func()
+
+#   def greet2():
+#     def func():
+#       return 5
+#     return func
+
+# Decorator Pattern
+
+
+from time import time
+
+
+def my_decoratorPattern(func):
+    def wrap_func(*args, **kwargs):
+        func(*args, **kwargs)
+    return wrap_func
+
+
+# hello()
+
+# @my_decorator
+# def bye():
+#   print('see you later')
+
+# bye()
+
+
+# Decorator example
+def my_decorator(func):
+    def wrap_func(*args, **kwargs):
+        print('*************')
+        func(*args, **kwargs)
+        print('*************')
+    return wrap_func
+
+
+@my_decorator
+def hello(greeting, emoji=':('):
+    print(greeting, emoji)
+
+
+hello('hiii')
+
+# Decorator
+
+
+def performance(fn):
+    def wrapper(*args, **kwargs):
+        t1 = time()
+        result = fn(*args, **kwargs)
+        t2 = time()
+        print(f'took {t2-t1} ms')
+        return result
+    return wrapper
+
+
+@performance
+def long_time():
+    for i in range(1000):
+        i*5
+
+long_time()
