@@ -995,32 +995,33 @@ def performance(fn):  # This allows to take the time of the script
 #     print(i)
 
 
-# Fibonacci generator
+# # Fibonacci generator
 
-@performance
-def fib_num(num):
-    a = 0
-    b = 1
-    for i in range(num):
-        yield a
-        temp = a
-        a = b
-        b = temp + b
+# @performance
+# def fib_num(num):
+#     a = 0
+#     b = 1
+#     for i in range(num):
+#         yield a
+#         temp = a
+#         a = b
+#         b = temp + b
 
 
-for x in fib_num(2000):
-    print(x)
+# for x in fib_num(2000):
+#     print(x)
 
-@performance
-def fib_num2(num):
-    a = 0
-    b = 1
-    result = []
-    for i in range(num):
-        result.append(a)
-        temp = a
-        a = b
-        b = temp + b
-    return result   
+# @performance
+# def fib_num2(num):
+#     a = 0
+#     b = 1
+#     result = []
+#     for i in range(num):
+#         result.append(a)
+#         temp = a
+#         a = b
+#         b = temp + b
+#     return result   
 
-print(fib_num2(2000))
+# print(fib_num2(2000))
+
