@@ -1173,23 +1173,39 @@ def performance(fn):  # This allows to take the time of the script
 # Exercise Translator DONE
 
 # Regular expressions
+# PAGE WITH REGULAR EXPRESSION regex101.com
 
-
-pattern = re.compile(r"([a-zA-Z]).([a])")
-string = 'search inside this text please this!'
-
+pattern = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
+string = 'fernando@gmail.com'
 
 a = pattern.search(string)
-b = pattern.findall(string)
-c = pattern.fullmatch(string)
-d = pattern.match(string)
-print(b)
-print(c)
-print(d)
-print(a.span())
-print(a.start())
-print(a.end())
-print(a.group())
+print(a)
+# a = pattern.search(string)
+# b = pattern.findall(string)
+# c = pattern.fullmatch(string)
+# d = pattern.match(string)
+# print(b)
+# print(c)
+# print(d)
+# print(a.span())
+# print(a.start())
+# print(a.end())
+# print(a.group())
 
 
-# IMPORTANTE PAGES WITH REGULAR EXPRESSION regex101.com
+# PAGE WITH REGULAR EXPRESSION regex101.com
+
+
+# Excercise: Create password checker with the next requirements
+# At least 8 char long
+# Contain any sort of letter, numbers, $@#@
+# has to end with a number
+
+password_pattern = re.compile(r"[A-Za-z0-9%&#$]{8,}\d")
+
+password = 'asdasdssS%3'
+
+check = password_pattern.fullmatch(password)
+
+print(check)
+
