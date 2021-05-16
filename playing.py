@@ -759,6 +759,7 @@ print(a)
 # Decorator Pattern
 
 
+import re  # re = regular expressions
 from time import time
 
 
@@ -1129,16 +1130,16 @@ def performance(fn):  # This allows to take the time of the script
 
 
 # with open('test.txt', mode ='r+') as my_file: # With 'r+' let you write in the file and alsolet you open and close the file without typing that
-#     text = my_file.write(':)')  
-#     print(text)              # Careful this replace the start of the file with everything you put on my_file.write(':)')   
+#     text = my_file.write(':)')
+#     print(text)              # Careful this replace the start of the file with everything you put on my_file.write(':)')
 
 # with open('test.txt', mode ='a') as my_file: # With 'a' allows to append the text at the end of the file and also let you write in the file and alsolet you open and close the file without typing that
-#     text = my_file.write(':)')    
-#     print(text)    
+#     text = my_file.write(':)')
+#     print(text)
 
 # with open('test.txt', mode ='w') as my_file: # With 'w' allows to overwrite the text at the end of the file and also let you write in the file and alsolet you open and close the file without typing that
-#     text = my_file.write(':)')    
-#     print(text)       
+#     text = my_file.write(':)')
+#     print(text)
 
 # with open('sad.txt', mode='w') as my_file: #'w' also creates a new file is this doesnt exits
 #     text = my_file.write(':(')
@@ -1149,7 +1150,7 @@ def performance(fn):  # This allows to take the time of the script
 
 # with open('app/sad.txt', mode='r') as my_file: this will open the file sad.text on the app folder, the script necessary needs to be in one back path directory, in this case desktop
 #     print(my_file.read())
-   
+
 # C:/users/Ferna/desktop full path
 # app/sad.txt  relative path
 # ./app/sad.txt  this is the last directory, so this means that you are searching the folder in the last path
@@ -1159,12 +1160,36 @@ def performance(fn):  # This allows to take the time of the script
 
 # File IO Errors
 
-try:
-  with open('sad.txt', mode='r') as my_file:
-    print(my_file.read())
-except FileNotFoundError as err:
-  print('Ups, the file does not exist')
-  raise err    
-except IOError as erro:
-  print('IO Error')
-  raise err
+# try:
+#   with open('sad.txt', mode='r') as my_file:
+#     print(my_file.read())
+# except FileNotFoundError as err:
+#   print('Ups, the file does not exist')
+#   raise err
+# except IOError as erro:
+#   print('IO Error')
+#   raise err
+
+# Exercise Translator DONE
+
+# Regular expressions
+
+
+pattern = re.compile(r"([a-zA-Z]).([a])")
+string = 'search inside this text please this!'
+
+
+a = pattern.search(string)
+b = pattern.findall(string)
+c = pattern.fullmatch(string)
+d = pattern.match(string)
+print(b)
+print(c)
+print(d)
+print(a.span())
+print(a.start())
+print(a.end())
+print(a.group())
+
+
+# IMPORTANTE PAGES WITH REGULAR EXPRESSION regex101.com
