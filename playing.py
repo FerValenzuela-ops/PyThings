@@ -1021,7 +1021,7 @@ def performance(fn):  # This allows to take the time of the script
 #         temp = a
 #         a = b
 #         b = temp + b
-#     return result   
+#     return result
 
 # print(fib_num2(2000))
 
@@ -1041,4 +1041,63 @@ def performance(fn):  # This allows to take the time of the script
 # #     # print(multiply(4, 20))
 # #     # print(max([1,2,3]))
 
-# # print(__name__)
+# # # print(__name__)
+# import utility
+# import shopping.shopping_cart
+# print(utility.divide(1, 2))
+
+# print(shopping.shopping_cart.buy('item'))
+
+
+# # Useful modules
+
+# from collections import Counter, defaultdict, OrderedDict
+
+# li = [1,2,3,4,5,6,7,7,7]
+# sentence = 'blah blah blah thinking about python'
+
+# print(Counter(li))
+# print(Counter(sentence))
+
+# my_dict = defaultdict(int,{'a' : 1, 'b':2})  # lambda: x -> this will return anything its in the variable lambda
+
+# print(my_dict['a']) # returns 0 because nothing is inside the dictionaryt
+
+# d = OrderedDict()
+
+# d['a']=1
+# d['b']=2
+
+
+# d2 = OrderedDict()
+# d2['b'] = 2
+# d2['a'] = 1
+# print(d2 ==d)
+
+# import datetime
+# print(datetime.time(2,0,0))
+
+# print(datetime.date.today())
+
+
+# from array import array
+
+# arr = array('i', [1,2,3])
+# print(arr[0])
+
+
+# debuggin' tips
+
+# use a linting for type errors in code
+# use an IDE or a code editor instead
+# learn to read errors
+
+# PDB Python Debugger https://docs.python.org/3/library/pdb.html
+
+import pdb
+def add(num1, num2):
+    pdb.set_trace()
+    return num1 + num2
+
+
+add(4, 'asdasdasd')
