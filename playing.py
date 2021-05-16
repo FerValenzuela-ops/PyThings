@@ -1143,3 +1143,13 @@ def performance(fn):  # This allows to take the time of the script
 # with open('sad.txt', mode='w') as my_file: #'w' also creates a new file is this doesnt exits
 #     text = my_file.write(':(')
 #     print(text)
+
+
+# file paths
+
+# C:/users/Ferna/desktop full path
+# app/sad.txt  relative path
+# ./app/sad.txt  this is the last directory, so this means that you are searching the folder in the last path
+# ../ this means two steps back in path directory
+
+# pathlib makes code paths work as unix as windows
