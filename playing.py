@@ -1147,9 +1147,24 @@ def performance(fn):  # This allows to take the time of the script
 
 # file paths
 
+# with open('app/sad.txt', mode='r') as my_file: this will open the file sad.text on the app folder, the script necessary needs to be in one back path directory, in this case desktop
+#     print(my_file.read())
+   
 # C:/users/Ferna/desktop full path
 # app/sad.txt  relative path
 # ./app/sad.txt  this is the last directory, so this means that you are searching the folder in the last path
 # ../ this means two steps back in path directory
 
 # pathlib makes code paths work as unix as windows
+
+# File IO Errors
+
+try:
+  with open('sad.txt', mode='r') as my_file:
+    print(my_file.read())
+except FileNotFoundError as err:
+  print('Ups, the file does not exist')
+  raise err    
+except IOError as erro:
+  print('IO Error')
+  raise err
