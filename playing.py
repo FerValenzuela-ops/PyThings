@@ -1094,11 +1094,15 @@ def performance(fn):  # This allows to take the time of the script
 
 # PDB Python Debugger https://docs.python.org/3/library/pdb.html
 
-import pdb
-def add(num1, num2):
-    pdb.set_trace()
-    return num1 + num2
+# import pdb
+# def add(num1, num2):
+#     pdb.set_trace()
+#     return num1 + num2
 
 
-add(4, 'asdasdasd')
-#
+# add(4, 'asdasdasd')
+# #
+
+my_file = open('test.txt')
+
+print(my_file)
