@@ -1104,22 +1104,42 @@ def performance(fn):  # This allows to take the time of the script
 # #
 
 
+# print(my_file)
 
-print(my_file)
+# my_file = open('test.txt')
 
-my_file = open('test.txt')
-
-# print(my_file.read())
-# my_file.seek(0)
-# print(my_file.read())
-# my_file.seek(0)
-# print(my_file.read())
-# my_file.seek(0)
-
-
-print(my_file.readline())
-
-print(my_file.readlines())
+# # print(my_file.read())
+# # my_file.seek(0)
+# # print(my_file.read())
+# # my_file.seek(0)
+# # print(my_file.read())
+# # my_file.seek(0)
 
 
-my_file.close()
+# print(my_file.readline())
+
+# print(my_file.readlines())
+
+
+# my_file.close()
+
+
+# with open('test.txt', mode ='r') as my_file: # With 'r' allows to read the file and let you open and close the file without typing that
+#     print(my_file.readlines())
+
+
+# with open('test.txt', mode ='r+') as my_file: # With 'r+' let you write in the file and alsolet you open and close the file without typing that
+#     text = my_file.write(':)')  
+#     print(text)              # Careful this replace the start of the file with everything you put on my_file.write(':)')   
+
+# with open('test.txt', mode ='a') as my_file: # With 'a' allows to append the text at the end of the file and also let you write in the file and alsolet you open and close the file without typing that
+#     text = my_file.write(':)')    
+#     print(text)    
+
+# with open('test.txt', mode ='w') as my_file: # With 'w' allows to overwrite the text at the end of the file and also let you write in the file and alsolet you open and close the file without typing that
+#     text = my_file.write(':)')    
+#     print(text)       
+
+# with open('sad.txt', mode='w') as my_file: #'w' also creates a new file is this doesnt exits
+#     text = my_file.write(':(')
+#     print(text)
