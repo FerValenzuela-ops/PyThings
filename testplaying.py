@@ -759,14 +759,16 @@ print(a)
 # Decorator Pattern
 
 
-import re  # re = regular expressions
-from time import time
+# import main
+# import unittest
+# import re  # re = regular expressions
+# from time import time
 
 
-def my_decoratorPattern(func):
-    def wrap_func(*args, **kwargs):
-        func(*args, **kwargs)
-    return wrap_func
+# def my_decoratorPattern(func):
+#     def wrap_func(*args, **kwargs):
+#         func(*args, **kwargs)
+#     return wrap_func
 
 
 # hello()
@@ -814,27 +816,27 @@ def my_decoratorPattern(func):
 
 # long_time()
 
-# Create an @authenticated decorator that only allows the function to run is user1 has 'valid' set to True:
-user1 = {
-    'name': 'Sorna',
-    # changing this will either run or not run the message_friends function.
-    'valid': True
-}
+# # Create an @authenticated decorator that only allows the function to run is user1 has 'valid' set to True:
+# user1 = {
+#     'name': 'Sorna',
+#     # changing this will either run or not run the message_friends function.
+#     'valid': True
+# }
 
 
-def authenticated(fn):
-    def wrapper(*args, **kwargs):
-        # Here valid equals True , *args[0] = (('name': 'Sorna'), ('valid': True)), ['valid'] = True or False
-        if args[0]['valid']:
-            return fn(*args, **kwargs)
-        else:
-            print('Ups, You are not logged in')  # Here valid equals to False
-    return wrapper
+# def authenticated(fn):
+#     def wrapper(*args, **kwargs):
+#         # Here valid equals True , *args[0] = (('name': 'Sorna'), ('valid': True)), ['valid'] = True or False
+#         if args[0]['valid']:
+#             return fn(*args, **kwargs)
+#         else:
+#             print('Ups, You are not logged in')  # Here valid equals to False
+#     return wrapper
 
 
-@authenticated
-def message_friends(user):
-    print('message has been sent')
+# @authenticated
+# def message_friends(user):
+#     print('message has been sent')
 
 
 # message_friends(user1)
@@ -915,6 +917,10 @@ def message_friends(user):
 
 
 # # Why generators
+
+
+import main
+import unittest
 
 
 def performance(fn):  # This allows to take the time of the script
@@ -1175,37 +1181,63 @@ def performance(fn):  # This allows to take the time of the script
 # Regular expressions
 # PAGE WITH REGULAR EXPRESSION regex101.com
 
-pattern = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
-string = 'fernando@gmail.com'
+# pattern = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
+# string = 'fernando@gmail.com'
 
-a = pattern.search(string)
-print(a)
 # a = pattern.search(string)
-# b = pattern.findall(string)
-# c = pattern.fullmatch(string)
-# d = pattern.match(string)
-# print(b)
-# print(c)
-# print(d)
-# print(a.span())
-# print(a.start())
-# print(a.end())
-# print(a.group())
+# print(a)
+# # a = pattern.search(string)
+# # b = pattern.findall(string)
+# # c = pattern.fullmatch(string)
+# # d = pattern.match(string)
+# # print(b)
+# # print(c)
+# # print(d)
+# # print(a.span())
+# # print(a.start())
+# # print(a.end())
+# # print(a.group())
 
 
-# PAGE WITH REGULAR EXPRESSION regex101.com
+# # PAGE WITH REGULAR EXPRESSION regex101.com
 
 
-# Excercise: Create password checker with the next requirements
-# At least 8 char long
-# Contain any sort of letter, numbers, $@#@
-# has to end with a number
+# # Excercise: Create password checker with the next requirements
+# # At least 8 char long
+# # Contain any sort of letter, numbers, $@#@
+# # has to end with a number
 
-password_pattern = re.compile(r"[A-Za-z0-9%&#$]{8,}\d")
+# password_pattern = re.compile(r"[A-Za-z0-9%&#$]{8,}\d")
 
-password = 'asdasdssS%3'
+# password = 'asdasdssS%3'
 
-check = password_pattern.fullmatch(password)
+# check = password_pattern.fullmatch(password)
 
-print(check)
+# print(check)
+
+
+class TestMain(unittest.TestCase):
+    def test_do_stuff(self):
+        test_param = 10
+        result = main.do_stuff(test_param)
+        self.assertEqual(result, 15)
+
+    def test_do_stuff2(self):
+        test_param = ('@@@23112', 2)
+        result = main.do_stuff(test_param)
+        self.assertIsInstance(result, (ValueError, TypeError))
+
+    def test_do_stuff3(self):
+        test_param = None
+        result = main.do_stuff(test_param)
+        self.assertEqual(result, 'Please enter a number')
+
+if __name__ == '__main__':
+  unittest.main()
+
+
+#The command: python3 -m unittest only works with files that start with the word : "test"
+
+#The command: python3 -m unittest -v gives more information of the tests"
+
 
