@@ -919,6 +919,9 @@ print(a)
 # # Why generators
 
 
+import random
+import sys
+from random import randint
 import main
 import unittest
 
@@ -1216,28 +1219,63 @@ def performance(fn):  # This allows to take the time of the script
 # print(check)
 
 
-class TestMain(unittest.TestCase):
-    def test_do_stuff(self):
-        test_param = 10
-        result = main.do_stuff(test_param)
-        self.assertEqual(result, 15)
+# class TestMain(unittest.TestCase):
+#     def setUp(self):
+#             print('about to test a function')
 
-    def test_do_stuff2(self):
-        test_param = ('@@@23112', 2)
-        result = main.do_stuff(test_param)
-        self.assertIsInstance(result, (ValueError, TypeError))
+#     def test_do_stuff(self):
+#         '''HIIIIIIIIIIIII'''
 
-    def test_do_stuff3(self):
-        test_param = None
-        result = main.do_stuff(test_param)
-        self.assertEqual(result, 'Please enter a number')
+#         test_param = 10
+#         result = main.do_stuff(test_param)
+#         self.assertEqual(result, 15)
 
-if __name__ == '__main__':
-  unittest.main()
+#     def test_do_stuff2(self):
+#         test_param = ('@@@23112', 2)
+#         result = main.do_stuff(test_param)
+#         self.assertIsInstance(result, (ValueError, TypeError))
+
+#     def test_do_stuff3(self):
+#         test_param = None
+#         result = main.do_stuff(test_param)
+#         self.assertEqual(result, 'Please enter a number')
+
+#     def test_do_stuff4(self):
+#         test_param = ''
+#         result = main.do_stuff(test_param)
+#         self.assertEqual(result, 'Please enter a number')
+
+#     def tearDown(self):
+#       print('cleaning up')
+
+# if __name__ == '__main__':
+#     unittest.main()
 
 
-#The command: python3 -m unittest only works with files that start with the word : "test"
+# The command: python3 -m unittest only works with files that start with the word : "test"
 
-#The command: python3 -m unittest -v gives more information of the tests"
+# The command: python3 -m unittest -v gives more information of the tests"
 
 
+# Excersice_testing
+
+
+# def run_guess(guess, answer):
+#     if 0 < guess < 11:
+#         if guess == answer:
+#             print('you are a genius!')
+#             return True
+#     else:
+#         print('hey bozo, I said 1~10')
+
+
+# if __name__ == '__playing__':
+#     answer = random.randint(1, 10)
+#     while True:
+#         try:
+#             guess = int(input('guess a number 1~10:  '))
+#             if run_guess(guess, answer):
+#                 break
+#         except ValueError:
+#             print('please enter a number')
+#             continue
